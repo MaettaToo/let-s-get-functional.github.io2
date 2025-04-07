@@ -17,10 +17,15 @@
  *    npm start --prefix ./let-s-get-functional.github.io/projects/let-s-get-functional
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
- */
+ */ 
 
 var maleCount = function(array) {
-  
+ //I: function takes in array of customer objects
+ //O: returns number of males in the array
+ //C: none
+ //E: none
+ // using arrow notation return the length of of the array created by filter function to see how many males are in the list
+ return  _.filter(array, (customer) => customer.gender === 'male').length;
 };
 
 var femaleCount;
@@ -31,7 +36,16 @@ var youngestCustomer;
 
 var averageBalance;
 
-var firstLetterCount;
+var firstLetterCount = (array, string) => {
+//I: function takes an array of customers, string repped as a letter 
+//O: return a number that showshow many customer's names begin with the input letter
+//C:none 
+//E: should make case insensitive
+//if I use filter, I can use the the lenght property to return the number
+// filter callback, probaly char at, name key string so the question is how to access the the last name break string into array
+// the second index of 
+console.log(array.name.split());
+};
 
 var friendFirstLetterCount;
 
