@@ -29,6 +29,12 @@ var maleCount = function(array) {
 };
 
 var femaleCount;
+//I: array of objects with customers 
+//O: return number of female customers 
+//C: use reduce 
+//E: none
+return _.reduce(array, (customer) )  
+
 
 var oldestCustomer;
 
