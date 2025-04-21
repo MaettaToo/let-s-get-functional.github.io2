@@ -28,15 +28,26 @@ var maleCount = function(array) {
  return  _.filter(array, (customer) => customer.gender === 'male').length;
 };
 
-var femaleCount;
+var femaleCount = (array) => {
 //I: array of objects with customers 
 //O: return number of female customers 
 //C: use reduce 
 //E: none
-return _.reduce(array, (customer) )  
+let sum = _.reduce(array, (acc, customer) =>{
+  if (customer.gender === 'female'){
+        acc += 1
+  }
+  return acc
+}, 0) 
+return sum;
+};
 
 
-var oldestCustomer;
+
+var oldestCustomer = (array, letter) => {
+}
+    
+        
 
 var youngestCustomer;
 
@@ -44,16 +55,38 @@ var averageBalance;
 
 var firstLetterCount = (array, string) => {
 //I: function takes an array of customers, string repped as a letter 
-//O: return a number that showshow many customer's names begin with the input letter
+//O: return a number that shows how many customer's names begin with the input letter
 //C:none 
 //E: should make case insensitive
 //if I use filter, I can use the the lenght property to return the number
 // filter callback, probaly char at, name key string so the question is how to access the the last name break string into array
 // the second index of 
-console.log(array.name.split());
+//use filter to access the array and compare first index of customer name  to string 
+ let findMatch = _.filter(array, (customer) => {
+  //return comparison stmt 
+  return customer.name[0].toUpperCase() === string || customer.name[0].toLowerCase() === string; 
+}).length;
+//return results of filtering 
+return findMatch; 
+  
+}
+
+
+
+var friendFirstLetterCount = (array, customer, letter) => {
+  //I: function takes 3 params, array of objects, customer current item in the array, item string repped as letter
+  //O:  return a number that tells the number of friends whose name start with the input letter
+  //C: none
+  //E: none 
+// filter, loop to access the array
+let findMatch = _.filter(array, (customer) => {
+  //return comparison stmt 
+  return customer.name[0].toUpperCase() === string || customer.name[0].toLowerCase() === string; 
+}).length;
+//return results of filtering 
+return findMatch;
 };
 
-var friendFirstLetterCount;
 
 var friendsCount;
 
