@@ -74,17 +74,30 @@ return findMatch;
 
 
 var friendFirstLetterCount = (array, customer, letter) => {
-  //I: function takes 3 params, array of objects, customer current item in the array, item string repped as letter
+  //I: function takes 3 params, array of objects, customer string representing the customer name item string repped as letter
   //O:  return a number that tells the number of friends whose name start with the input letter
   //C: none
   //E: none 
-// filter, loop to access the array
-let findMatch = _.filter(array, (customer) => {
+// use filter to iterate over the array
+let findFriendMatch = _.filter(array, (cust) => {
+  
   //return comparison stmt 
-  return customer.name[0].toUpperCase() === string || customer.name[0].toLowerCase() === string; 
-}).length;
+  if( customer === cust.name) {
+    
+   for(let i = 0; i < cust.friends.length; i++){
+    if(cust.friends[i].name[0].toUpperCase() === letter || cust.friends[i].name[0].toLowerCase() === letter){
+         return true
+   }
+  }
+  
+  } 
+  
+}
+  });
+  
+
 //return results of filtering 
-return findMatch;
+return findFriendMatch.length;
 };
 
 
