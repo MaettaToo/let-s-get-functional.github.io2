@@ -2,6 +2,8 @@
 
 'use strict';
 
+const { camelCase } = require("lodash");
+
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -19,13 +21,13 @@
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */ 
 
-var maleCount = function(array) {
+var maleCount = (array) => {
  //I: function takes in array of customer objects
  //O: returns number of males in the array
  //C: none
  //E: none
  // using arrow notation return the length of of the array created by filter function to see how many males are in the list
- return  _.filter(array, (customer) => customer.gender === 'male').length;
+ return  array.filter((customer) => customer.gender === 'male').length;
 };
 
 var femaleCount = (array) => {
@@ -33,21 +35,35 @@ var femaleCount = (array) => {
 //O: return number of female customers 
 //C: use reduce 
 //E: none
-let sum = _.reduce(array, (acc, customer) =>{
-  if (customer.gender === 'female'){
-        acc += 1
-  }
-  return acc
-}, 0) 
-return sum;
+//let sum = _.reduce(array, (acc, customer) =>{
+  //if (customer.gender === 'female'){
+       // acc += 1
+  //}
+  //return acc
+//}, 0) 
+//return sum;
 };
 
 
 
-var oldestCustomer = (array, letter) => {
-}
-    
-        
+var oldestCustomer = (array) => {
+  
+//let output = '';
+//I:  function takes an array of objects 
+//O: return a string with the oldest customers name 
+// C: none
+//E: none 
+// iterate over the array, use reduce 
+ // _.reduce(array, (acc, curr) => {
+// compare ages of customers
+//if(acc.age < curr. age){
+      //acc = curr
+//}
+//return acc;
+//output = acc.name;
+//})
+//return  output;
+};   
 
 var youngestCustomer;
 
@@ -62,44 +78,57 @@ var firstLetterCount = (array, string) => {
 // filter callback, probaly char at, name key string so the question is how to access the the last name break string into array
 // the second index of 
 //use filter to access the array and compare first index of customer name  to string 
- let findMatch = _.filter(array, (customer) => {
+//let findMatch = _.filter(array, (customer) => {
   //return comparison stmt 
-  return customer.name[0].toUpperCase() === string || customer.name[0].toLowerCase() === string; 
-}).length;
+ //return customer.name[0].toUpperCase() === string || customer.name[0].toLowerCase() === string; 
+//}).length;
 //return results of filtering 
-return findMatch; 
+//return findMatch; 
   
-}
+};
 
 
 
 var friendFirstLetterCount = (array, customer, letter) => {
-  //I: function takes 3 params, array of objects, customer string representing the customer name item string repped as letter
-  //O:  return a number that tells the number of friends whose name start with the input letter
+  //I:function takes 3 params, array of objects, customer a string representing the customer name, letter a string as input for the comparison
+  //O:return a number that tells the number of friends whose name starts with the input letter of the given customer name  
   //C: none
-  //E: none 
-// use filter to iterate over the array
-let findFriendMatch = _.filter(array, (cust) => {
-  
-  //return comparison stmt 
-  if( customer === cust.name) {
-    
-   for(let i = 0; i < cust.friends.length; i++){
-    if(cust.friends[i].name[0].toUpperCase() === letter || cust.friends[i].name[0].toLowerCase() === letter){
-         return true
-   }
-  }
-  
-  } 
-  
+  //E: must be case insensitive 
+// use filter to iterate over the array,
+// create conditional stmt to deterrmine if customer strictly equaled the current items(object) customer name 
+// filter over the new array that the first filter created 
+//determine if conditional statement to determine if the lowercase or uppercase character at  friends.name array  is strictly equal to letter(input string) 
+// return the length of array returned from the the most recent filter 
+
+// return the results of invoking the filter function
+
+
+
+
+
+
+
+
+//create output array
+ //let output = [];
+ // for loop to iterate over array of objects
+ //for(let i = 0; i < array.length; i++){
+ //use conditional statement to determine if customer(input string) strictly equals  array{i].customerName  if  true  
+  //if (customer === array[i].name){
+    //use loop to iterate over the friends array
+    //for( let j = 0; j <array[i].friends.length; j++){
+      // conditional statement to determine if the lowercase or uppercase character at friends[i][0] is strictly equal to letter(input string)
+      //if (array[i].friends[j].name[0].toUpperCase() === letter || array[i].friends[j].name[0].toLowerCase() === letter){
+       // if true push name to the output array
+        //output.push( array[i].friends[j].name)
+      //}
+    //}
+ //}
+
+ //}
+ // return the length of the output array 
+ //return output.length;
 }
-  });
-  
-
-//return results of filtering 
-return findFriendMatch.length;
-};
-
 
 var friendsCount;
 
