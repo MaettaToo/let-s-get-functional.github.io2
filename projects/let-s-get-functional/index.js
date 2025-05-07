@@ -2,7 +2,6 @@
 
 'use strict';
 
-const { camelCase } = require("lodash");
 
 
 /**
@@ -35,37 +34,81 @@ var femaleCount = (array) => {
 //O: return number of female customers 
 //C: use reduce 
 //E: none
-//let sum = _.reduce(array, (acc, customer) =>{
-  //if (customer.gender === 'female'){
-       // acc += 1
-  //}
-  //return acc
-//}, 0) 
-//return sum;
+let sum = _.reduce(array, (acc, customer) =>{
+  if (customer.gender === 'female'){
+        acc += 1
+  }
+  return acc
+}, 0) 
+return sum;
 };
 
 
 
 var oldestCustomer = (array) => {
   
-//let output = '';
+
 //I:  function takes an array of objects 
 //O: return a string with the oldest customers name 
 // C: none
-//E: none 
-// iterate over the array, use reduce 
- // _.reduce(array, (acc, curr) => {
-// compare ages of customers
-//if(acc.age < curr. age){
-      //acc = curr
-//}
-//return acc;
-//output = acc.name;
-//})
-//return  output;
+//E: none
+// init  output variable as empty string  
+let output = '';
+// iterate over the array, use reduce do not include seed because I need to compare ages and need the acc to be my initial value 
+
+  _.reduce(array, (acc, curr) => {
+//conditional stmt if acc.age is less than curr.age  then acc is reassigned to curr
+// 37 < 39
+
+if( acc.age < curr.age){
+      acc = curr;
+      // reassign output to acc.name 
+output += acc.name
+// return acc to start the process over 
+return acc;
+}
+////39 < 36
+ else{
+  // return acc to start the process over 
+  return acc
+ }  
+})
+
+//return output 
+return  output;
 };   
 
-var youngestCustomer;
+var youngestCustomer = (array) => {
+
+//I:  function takes an array of objects 
+//O: return a string with the youngest customers name 
+// C: none
+//E: none
+// init  output variable as empty string  
+let output = '';
+_.reduce(array, (acc, curr) => {
+  //conditional stmt if acc.age is less than curr.age  then acc is reassigned to curr
+  // 39 < 37
+  if( acc.age < curr.age){
+        acc = curr;
+    // reassign output to acc.name 
+        output += acc.name
+    
+  // return acc to start the process over 
+  return acc;
+  }
+  ////39 < 36
+   else {
+    // return acc to start the process over 
+    return acc
+   }  
+  })
+  
+  //return output 
+  return  output;
+  }; 
+
+
 
 var averageBalance;
 
@@ -78,12 +121,12 @@ var firstLetterCount = (array, string) => {
 // filter callback, probaly char at, name key string so the question is how to access the the last name break string into array
 // the second index of 
 //use filter to access the array and compare first index of customer name  to string 
-//let findMatch = _.filter(array, (customer) => {
+let findMatch = _.filter(array, (customer) => {
   //return comparison stmt 
- //return customer.name[0].toUpperCase() === string || customer.name[0].toLowerCase() === string; 
-//}).length;
+ return customer.name[0].toUpperCase() === string || customer.name[0].toLowerCase() === string; 
+}).length;
 //return results of filtering 
-//return findMatch; 
+return findMatch; 
   
 };
 
