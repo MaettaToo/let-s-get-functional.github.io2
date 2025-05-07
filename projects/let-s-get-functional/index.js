@@ -145,13 +145,13 @@ var genderCount;
 //////////////////////////////////////////////////////////////////////
 
 // here, export any references you need for tests //
-// module.exports.maleCount = maleCount;
-// module.exports.femaleCount = femaleCount;
-// module.exports.oldestCustomer = oldestCustomer;
-// module.exports.youngestCustomer = youngestCustomer;
-// module.exports.averageBalance = averageBalance;
-// module.exports.firstLetterCount = firstLetterCount;
-// module.exports.friendFirstLetterCount = friendFirstLetterCount;
-// module.exports.friendsCount = friendsCount;
-// module.exports.topThreeTags = topThreeTags;
-// module.exports.genderCount = genderCount;
+module.exports.maleCount = maleCount;
+module.exports.femaleCount = femaleCount;
+module.exports.oldestCustomer = oldestCustomer;
+module.exports.youngestCustomer = youngestCustomer;
+module.exports.averageBalance = averageBalance;
+module.exports.firstLetterCount = firstLetterCount;
+module.exports.friendFirstLetterCount = friendFirstLetterCount;
+module.exports.friendsCount = friendsCount;
+module.exports.topThreeTags = topThreeTags;
+module.exports.genderCount = genderCount;
