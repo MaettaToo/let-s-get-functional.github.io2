@@ -52,30 +52,18 @@ var oldestCustomer = (array) => {
 //O: return a string with the oldest customers name 
 // C: none
 //E: none
-// init  output variable as empty string  
-let output = '';
 // iterate over the array, use reduce do not include seed because I need to compare ages and need the acc to be my initial value 
 
-  _.reduce(array, (acc, curr) => {
+const oldest =  _.reduce(array, (acc, curr) => {
 //conditional stmt if acc.age is less than curr.age  then acc is reassigned to curr
-// 37 < 39
-
 if( acc.age < curr.age){
       acc = curr;
-      // reassign output to acc.name 
-output += acc.name
-// return acc to start the process over 
-return acc;
 }
-////39 < 36
- else{
-  // return acc to start the process over 
-  return acc
- }  
-})
-
-//return output 
-return  output;
+//return acc to start the process over
+return acc;
+});
+//return name of oldest in string 
+return oldest.name;
 };   
 
 var youngestCustomer = (array) => {
@@ -84,33 +72,38 @@ var youngestCustomer = (array) => {
 //O: return a string with the youngest customers name 
 // C: none
 //E: none
-// init  output variable as empty string  
-let output = '';
-_.reduce(array, (acc, curr) => {
-  //conditional stmt if acc.age is less than curr.age  then acc is reassigned to curr
-  // 39 < 37
-  if( acc.age < curr.age){
-        acc = curr;
-    // reassign output to acc.name 
-        output += acc.name
-    
-  // return acc to start the process over 
-  return acc;
-  }
-  ////39 < 36
-   else {
-    // return acc to start the process over 
-    return acc
-   }  
-  })
-  
-  //return output 
-  return  output;
-  }; 
+
+  const youngest =  _.reduce(array, (acc, curr) => {
+    //conditional stmt if acc.age is greater than curr.age  then acc is reassigned to curr
+    if( acc.age > curr.age){
+          acc = curr;
+    }
+    //return acc to start the process over
+    return acc;
+    });
+    //return name of youngest in string
+    return youngest.name;
+    };  
+   
 
 
 
-var averageBalance;
+var averageBalance = (array) => {
+  //I: function takes an array of objects as input 
+  //O: return a number representing the average balance of the customers 
+  //C:none
+  //E: none
+  // add all of the balances together, potential concerns balances are listed as strings so need to convert to number, divide over array.length to get the average 
+  //iterate over the array using reduce need seed? probaly not becase I need to convert over to numbers
+  const res = array.map(({ curr.balance }) => ({ curr.balanc = +curr.balance }));
+console.log(res);
+  const sum = _.reduce(array, (acc, curr) => {
+     //acc += Number(curr.balance);
+     console.log(parseFloat(curr.balance));
+     return acc;
+
+  },0)
+};
 
 var firstLetterCount = (array, string) => {
 //I: function takes an array of customers, string repped as a letter 
