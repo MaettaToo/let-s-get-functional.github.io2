@@ -166,7 +166,7 @@ var friendFirstLetterCount = (array, customer, letter) => {
 }
 
 var friendsCount = (array, name) => {
-
+console.log(name);
 //I: function takes an array of objects and a string repped as name 
  //O: return an array containing customer's name that has the input string in their friends list 
  //C: none 
@@ -174,13 +174,7 @@ var friendsCount = (array, name) => {
  // use filter, then iterate over the friends array to see if the input name exists 
  // use 
  return  _.filter(array, (curr) =>{
-  //const friendly = _.filter(curr.friends, (item) => {
-    //console.log(item.name);
-    //return item.name  === name;
   
-  //})
-  //console.log(friendly);
-  //return friendly;
 
    for (let i = 0; i < curr.friends.length; i++){
     if(curr.friends[i].name === name){
@@ -191,6 +185,7 @@ var friendsCount = (array, name) => {
   })
 
 };
+
 
 
 
