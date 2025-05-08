@@ -178,31 +178,32 @@ var friendsCount = (array, name) => {
  //E: none 
  // use filter, then iterate over the friends array to see if the input name exists 
  // use 
- const rotten =  _.filter(array, (curr) =>{
+ return  _.filter(array, (curr) =>{
  // const results = _.filter(curr.friends, (item) =>{
      //if(item.name === name){
        //return true;
      //};
 
-//console.log(results);
+    //let results = [];
    // return results;
-   let results = '';
-    for (let i = 0; i < curr.friends.length; i++){
-    if(curr.friends[i].name === name){
-      results += curr.name;
+    //for (let i = 0; i < curr.friends.length; i++){
+    //if(curr.friends[i].name === name){
+      //console.log(curr);
+       //results.push(curr);
+   //}
+    //console.log(results);
+    //}
+    //console.log(results);
+    if(curr.friends.includes(name)){
+      return true;
     }
-    
-   }
-   //console.log(results);
-   return results;
-})
+  })
 
-console.log(rotten);
-return rotten;
-
-
- 
 };
+
+//console.log(rotten);
+
+
 
 var topThreeTags;
 
