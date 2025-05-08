@@ -144,11 +144,6 @@ var friendFirstLetterCount = (array, customer, letter) => {
 
 
 
-
-
-
-
-
 //create output array
  //let output = [];
  // for loop to iterate over array of objects
@@ -178,7 +173,7 @@ var friendsCount = (array, name) => {
  //E: none 
  // use filter, then iterate over the friends array to see if the input name exists 
  // use 
- return  _.filter(array, (curr) =>{
+ //return  _.filter(array, (curr) =>{
  // const results = _.filter(curr.friends, (item) =>{
      //if(item.name === name){
        //return true;
@@ -194,20 +189,68 @@ var friendsCount = (array, name) => {
     //console.log(results);
     //}
     //console.log(results);
-    if(curr.friends.includes(name)){
-      return true;
-    }
-  })
+    //if(curr.friends.includes(name)){
+      //return true;
+    //}
+  //})
 
 };
 
-//console.log(rotten);
 
 
 
-var topThreeTags;
+var topThreeTags = (array) => {
+  //I: function takes an array as input 
+//O: return an array of strings with the three most common tags among all customers' associated tags
+//C: none
+//E: none 
+// the whole idea is to collect the values that occur multiple times into one array and then determine how many times they occur.
+// the top three values  will then be collected into a new array and returned
+// use reduce to set up comparison and accumulate the the most frequently used tags
+// use filter within reduce to filter out the most common used or should I filter out the least common used how will that look?
+//the logic here is to set up reduce with empty array as seed 
+// filter over the tags array and push values that are not in the array into the seed array doesn't make sense  should push values that are in the array to seed
+//so that I can count them 
+// once values are collected filter over the new array to see how many instances of strigs occur, need reduce again to count 
+// return the top three to the array 
 
-var genderCount;
+//if(acc.tags includes )
+return _.reduce(array, (acc, curr) => {
+     _.filter(curr.tags, (item) => {
+      if (!curr.tags.includes(item)){
+        acc.push(item);
+        console.log(acc);
+      }
+    })
+    //console.log(acc)
+    return acc;
+}, [])
+};
+
+var genderCount = (array) => {
+//I: function takes an array of objects as params
+//O: return an object with the count of the genders value and the gender as the key
+//C: must use reduce
+//E: none
+//use filter to find binary, 
+var nonBinary = (array) => {
+  // using arrow notation return the length of of the array created by filter function to see how many non-binary people are in the list
+  return  _.filter(array,(customer) => customer.gender === 'non-binary').length;
+ };
+ //use maleCount and and femaleCount within reduce function to return the object 
+ const genderInfo = _.reduce(array,(acc, curr) =>{
+          acc.male = maleCount(array);
+          acc.female = femaleCount(array);
+          acc['non-binary'] = nonBinary(array);
+        // return acc to start process over 
+        return acc;
+ }, {})
+ //return results of adding object
+ return genderInfo;
+ 
+
+
+};
 
 
 
