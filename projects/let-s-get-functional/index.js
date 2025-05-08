@@ -173,16 +173,19 @@ console.log(name);
  //E: none 
  // use filter, then iterate over the friends array to see if the input name exists 
  // use 
- return  _.filter(array, (curr) =>{
+ let filtrex =  _.filter(array, (curr) =>{
   
 
    for (let i = 0; i < curr.friends.length; i++){
-    if(curr.friends[i].name === name){
+    if(curr.friends[i].name === name && name !== curr.name){
+      console.log(curr.friends[i])
       return true;
    }
-  
+  return true;
     }
   })
+  console.log(filtrex);
+  return filtrex;
 
 };
 
