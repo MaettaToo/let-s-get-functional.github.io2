@@ -93,16 +93,20 @@ var averageBalance = (array) => {
   //O: return a number representing the average balance of the customers 
   //C:none
   //E: none
-  // add all of the balances together, potential concerns balances are listed as strings so need to convert to number, divide over array.length to get the average 
-  //iterate over the array using reduce need seed? probaly not becase I need to convert over to numbers
-  const res = array.map(({ curr.balance }) => ({ curr.balanc = +curr.balance }));
-console.log(res);
+   
+  //iterate over the array using reduce 
   const sum = _.reduce(array, (acc, curr) => {
-     //acc += Number(curr.balance);
-     console.log(parseFloat(curr.balance));
+    // use regex to remove commas and dollar signs
+    let newBalance = Number(curr.balance.replace(/[$,]/g,''));
+    
+    //add all of the balances together,
+    acc += newBalance;
+   // restart iteration over again
      return acc;
 
-  },0)
+  },0);
+  //return results of reduce function divided over array.length to get the average
+  return sum / array.length;
 };
 
 var firstLetterCount = (array, string) => {
@@ -166,7 +170,39 @@ var friendFirstLetterCount = (array, customer, letter) => {
  //return output.length;
 }
 
-var friendsCount;
+var friendsCount = (array, name) => {
+
+//I: function takes an array of objects and a string repped as name 
+ //O: return an array containing customer's name that has the input string in their friends list 
+ //C: none 
+ //E: none 
+ // use filter, then iterate over the friends array to see if the input name exists 
+ // use 
+ const rotten =  _.filter(array, (curr) =>{
+ // const results = _.filter(curr.friends, (item) =>{
+     //if(item.name === name){
+       //return true;
+     //};
+
+//console.log(results);
+   // return results;
+   let results = '';
+    for (let i = 0; i < curr.friends.length; i++){
+    if(curr.friends[i].name === name){
+      results += curr.name;
+    }
+    
+   }
+   //console.log(results);
+   return results;
+})
+
+console.log(rotten);
+return rotten;
+
+
+ 
+};
 
 var topThreeTags;
 
