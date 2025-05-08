@@ -178,14 +178,14 @@ console.log(name);
 
    for (let i = 0; i < curr.friends.length; i++){
     if(curr.friends[i].name === name && name !== curr.name){
-      console.log(curr.friends[i])
       return true;
    }
-
     }
-  })
-  console.log(filtrex);
+  });
+  //console.log(filtrex);
   return filtrex;
+
+ 
 
 };
 
