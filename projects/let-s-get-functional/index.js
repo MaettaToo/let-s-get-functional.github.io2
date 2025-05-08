@@ -163,7 +163,7 @@ var friendFirstLetterCount = (array, customer, letter) => {
  //}
  // return the length of the output array 
  //return output.length;
-}
+};
 
 var friendsCount = (array, name) => {
 console.log(name);
@@ -184,9 +184,12 @@ console.log(name);
   });
   //console.log(filtrex);
   return filtrex;
+  const results = _.reduce(filtrex, (acc, curr2) => {
+    acc.push(curr2.name)
+    return acc;
 
- 
-
+  }, []); 
+return results;
 };
 
 
