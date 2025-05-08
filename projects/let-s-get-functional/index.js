@@ -181,7 +181,7 @@ console.log(name);
       console.log(curr.friends[i])
       return true;
    }
-  return true;
+
     }
   })
   console.log(filtrex);
