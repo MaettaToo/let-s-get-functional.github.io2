@@ -135,6 +135,26 @@ var friendFirstLetterCount = (array, customer, letter) => {
   //C: none
   //E: must be case insensitive 
 // use filter to iterate over the array,
+ return  _.filter(array,(curr) =>{
+  if(curr.name === customer){
+    console.log(curr.name, customer)
+    //use loop to iterate over the friends array
+    for( let j = 0; j < curr.friends.length; j++){
+      // conditional statement to determine if the lowercase or uppercase character at friends[i][0] is strictly equal to letter(input string)
+        if (curr.friends[j].name[0].toUpperCase() === letter || curr.friends[j].name[0].toLowerCase() === letter){
+          console.log(curr.friends[j].name[0].toUpperCase(), letter, curr.friends[j].name[0].toLowerCase() );
+       // if true return true
+        return true
+      }
+    }
+  }
+  
+}).length;
+
+
+
+//return filtrex;
+//return filtrex
 // create conditional stmt to deterrmine if customer strictly equaled the current items(object) customer name 
 // filter over the new array that the first filter created 
 //determine if conditional statement to determine if the lowercase or uppercase character at  friends.name array  is strictly equal to letter(input string) 
@@ -164,31 +184,36 @@ var friendFirstLetterCount = (array, customer, letter) => {
  // return the length of the output array 
  //return output.length;
 };
+console.log(friendFirstLetterCount(data, 'Olga Newton', 'c'));
 
 var friendsCount = (array, name) => {
-console.log(name);
+
 //I: function takes an array of objects and a string repped as name 
  //O: return an array containing customer's name that has the input string in their friends list 
  //C: none 
  //E: none 
  // use filter, then iterate over the friends array to see if the input name exists 
- // use 
- let filtrex =  _.filter(array, (curr) =>{
-  
-
-   for (let i = 0; i < curr.friends.length; i++){
+ const filtrex =  _.filter(array, (curr) =>{
+  // test to see if input name appears in friends array, 
+  //for loop to iterate over friends array
+    for (let i = 0; i < curr.friends.length; i++){
+      //conditional stmt to determine the if name is in the friends array
     if(curr.friends[i].name === name && name !== curr.name){
+      //return true if test is passed
       return true;
    }
     }
   });
-  //console.log(filtrex);
-  return filtrex;
+  
+// reduce through the results of the filter array to abstract the names 
   const results = _.reduce(filtrex, (acc, curr2) => {
+    // push name to acc empty array
     acc.push(curr2.name)
+    //return acc to restart the process
     return acc;
 
   }, []); 
+  // return the results of using reduce to build the array;
 return results;
 };
 
