@@ -135,21 +135,17 @@ var friendFirstLetterCount = (array, customer, letter) => {
   //C: none
   //E: must be case insensitive 
 // use filter to iterate over the array,
- return  _.filter(array,(curr) =>{
-  if(curr.name === customer){
-    console.log(curr.name, customer)
-    //use loop to iterate over the friends array
-    for( let j = 0; j < curr.friends.length; j++){
-      // conditional statement to determine if the lowercase or uppercase character at friends[i][0] is strictly equal to letter(input string)
-        if (curr.friends[j].name[0].toUpperCase() === letter || curr.friends[j].name[0].toLowerCase() === letter){
-          console.log(curr.friends[j].name[0].toUpperCase(), letter, curr.friends[j].name[0].toLowerCase() );
-       // if true return true
-        return true
-      }
-    }
-  }
-  
-}).length;
+ let jabba =  _.filter(array,(curr) =>{
+   return curr.name === customer});
+   
+   // console.log(jabba)
+     let theHut = _.filter(jabba,(curr2) => {
+      return curr2.name[0].toUppercase() === letter || curr2.name[0].toLowercase() === letter 
+      console.log(curr2.name[0]);
+    })
+      
+    
+
 
 
 
@@ -235,6 +231,9 @@ var topThreeTags = (array) => {
 //so that I can count them 
 // once values are collected filter over the new array to see how many instances of strigs occur, need reduce again to count 
 // return the top three to the array 
+//I would need to use reduce to  build a comparison array, meaning first iteration add the first array to the seed array, 
+//then iterate again using the comparison array to add the ones that appear in the curr item 
+// once acc is built then reduce  or filter again to  over the results 
 
 //if(acc.tags includes )
 return _.reduce(array, (acc, curr) => {
