@@ -136,13 +136,22 @@ var friendFirstLetterCount = (array, customer, letter) => {
   //E: must be case insensitive 
 // use filter to iterate over the array,
  let jabba =  _.filter(array,(curr) =>{
-   return curr.name === customer});
+    return curr.name === customer});
    
-   // console.log(jabba)
-     let theHut = _.filter(jabba,(curr2) => {
-      return curr2.name[0].toUppercase() === letter || curr2.name[0].toLowercase() === letter 
-      console.log(curr2.name[0]);
-    })
+    console.log(jabba.length);
+     //return _.filter(jabba, (curr2) => {
+      //curr2.name[0].toLowerCase() === letter || curr2.name[0].toUpperCase() === letter;
+      //console.log(curr2.name[0].toLowerCase());
+    //}).length;
+    let daHut = [];
+    for( let i = 0; i < jabba.length; i++){
+      if (jabba[i].name[0].toLowerCase() === letter || jabba[i].name[0].toUpperCase() === letter){
+        console.log(jabba[i].name);
+        daHut.push(jabba[i].name)
+      }
+    }
+    //console.log(daHut);
+    return daHut.length;
       
     
 
