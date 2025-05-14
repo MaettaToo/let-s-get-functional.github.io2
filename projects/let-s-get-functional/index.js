@@ -134,62 +134,48 @@ var friendFirstLetterCount = (array, customer, letter) => {
   //O:return a number that tells the number of friends whose name starts with the input letter of the given customer name  
   //C: none
   //E: must be case insensitive 
-// use filter to iterate over the array,
- let jabba =  _.filter(array,(curr) =>{
-    return curr.name === customer});
-   
-    console.log(jabba.length);
-     //return _.filter(jabba, (curr2) => {
-      //curr2.name[0].toLowerCase() === letter || curr2.name[0].toUpperCase() === letter;
-      //console.log(curr2.name[0].toLowerCase());
-    //}).length;
-    let daHut = [];
-    for( let i = 0; i < jabba.length; i++){
-      if (jabba[i].name[0].toLowerCase() === letter || jabba[i].name[0].toUpperCase() === letter){
-        console.log(jabba[i].name);
-        daHut.push(jabba[i].name)
-      }
-    }
-    //console.log(daHut);
-    return daHut.length;
-      
-    
-
-
-
-
-//return filtrex;
-//return filtrex
-// create conditional stmt to deterrmine if customer strictly equaled the current items(object) customer name 
-// filter over the new array that the first filter created 
-//determine if conditional statement to determine if the lowercase or uppercase character at  friends.name array  is strictly equal to letter(input string) 
-// return the length of array returned from the the most recent filter 
-
-// return the results of invoking the filter function
-
-
 
 //create output array
- //let output = [];
+ let output = [];
  // for loop to iterate over array of objects
- //for(let i = 0; i < array.length; i++){
+ for(let i = 0; i < array.length; i++){
  //use conditional statement to determine if customer(input string) strictly equals  array{i].customerName  if  true  
-  //if (customer === array[i].name){
+  if (customer === array[i].name){
     //use loop to iterate over the friends array
-    //for( let j = 0; j <array[i].friends.length; j++){
+    for( let j = 0; j < array[i].friends.length; j++){
       // conditional statement to determine if the lowercase or uppercase character at friends[i][0] is strictly equal to letter(input string)
-      //if (array[i].friends[j].name[0].toUpperCase() === letter || array[i].friends[j].name[0].toLowerCase() === letter){
+      if (array[i].friends[j].name[0].toUpperCase() === letter || array[i].friends[j].name[0].toLowerCase() === letter){
        // if true push name to the output array
-        //output.push( array[i].friends[j].name)
-      //}
-    //}
- //}
+        output.push( array[i].friends[j].name)
+      }
+    }
+ }
 
- //}
+ }
  // return the length of the output array 
- //return output.length;
+ return output.length;
+//const nameMatch = _.filter(array, (curr1) =>{ 
+   //if(curr1.name === customer){
+    //return true
+  // }
+//})
+//console.log(nameMatch);
+
+
+ //const friendly =  _.filter(array, (curr) =>{
+  // test to see if input name appears in friends array, 
+  //for loop to iterate over friends array
+    //for (let i = 0; i < curr.friends.length; i++){
+      //conditional stmt to determine the if name is in the friends array
+    //if(curr.friends[i].name === name && name !== curr.name){
+      //return true if test is passed
+      //return true;
+   //}
+    //}
+  //});
 };
-console.log(friendFirstLetterCount(data, 'Olga Newton', 'c'));
+
+
 
 var friendsCount = (array, name) => {
 
@@ -231,31 +217,41 @@ var topThreeTags = (array) => {
 //O: return an array of strings with the three most common tags among all customers' associated tags
 //C: none
 //E: none 
-// the whole idea is to collect the values that occur multiple times into one array and then determine how many times they occur.
-// the top three values  will then be collected into a new array and returned
-// use reduce to set up comparison and accumulate the the most frequently used tags
-// use filter within reduce to filter out the most common used or should I filter out the least common used how will that look?
-//the logic here is to set up reduce with empty array as seed 
-// filter over the tags array and push values that are not in the array into the seed array doesn't make sense  should push values that are in the array to seed
-//so that I can count them 
-// once values are collected filter over the new array to see how many instances of strigs occur, need reduce again to count 
-// return the top three to the array 
-//I would need to use reduce to  build a comparison array, meaning first iteration add the first array to the seed array, 
-//then iterate again using the comparison array to add the ones that appear in the curr item 
-// once acc is built then reduce  or filter again to  over the results 
+// the whole idea is to collect the values that occur multiple times into one array and then determine how many times they occur. 
 
 //if(acc.tags includes )
-return _.reduce(array, (acc, curr) => {
-     _.filter(curr.tags, (item) => {
-      if (!curr.tags.includes(item)){
-        acc.push(item);
-        console.log(acc);
+// use reduce to create comparison to see if elements from acc.tags appear in curr.tags
+  const testy =  _.reduce(array, (acc, curr) => {
+    
+     for(let i = 0; i < curr.tags.length; i++){
+      if (!acc.hasOwnProperty(curr.tags[i])){
+        acc[curr.tags[i]] = 1;
+      } else if(acc.hasOwnProperty(curr.tags[i])){
+        acc[curr.tags[i]] += 1; 
       }
-    })
-    //console.log(acc)
+     }
+      
     return acc;
-}, [])
+}, {});
+let results = Object.entries(testy);
+
+const ascend = results.sort(function (a, b){
+  return b[1] - a[1];
+})
+
+const finalResults = []
+finalResults.push(ascend[0][0], ascend[1][0], ascend[2][0]);
+ return finalResults;
+
 };
+
+
+    
+    
+
+
+   
+  
 
 var genderCount = (array) => {
 //I: function takes an array of objects as params
