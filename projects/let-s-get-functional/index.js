@@ -222,17 +222,21 @@ var topThreeTags = (array) => {
 //if(acc.tags includes )
 // use reduce to create comparison to see if elements from acc.tags appear in curr.tags
   const testy =  _.reduce(array, (acc, curr) => {
-    
+    // init for loop to iterate over curr tags array
      for(let i = 0; i < curr.tags.length; i++){
+      //conditional stmt to test if acc has key
       if (!acc.hasOwnProperty(curr.tags[i])){
+      // add the key  to the object
         acc[curr.tags[i]] = 1;
+        // if property exist count the value 
       } else if(acc.hasOwnProperty(curr.tags[i])){
         acc[curr.tags[i]] += 1; 
       }
      }
-      
+      // return acc
     return acc;
 }, {});
+//
 let results = Object.entries(testy);
 
 const ascend = results.sort(function (a, b){
