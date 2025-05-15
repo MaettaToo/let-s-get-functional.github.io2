@@ -136,43 +136,23 @@ var friendFirstLetterCount = (array, customer, letter) => {
   //E: must be case insensitive 
 
 //create output array
- let output = [];
+
  // for loop to iterate over array of objects
  for(let i = 0; i < array.length; i++){
  //use conditional statement to determine if customer(input string) strictly equals  array{i].customerName  if  true  
   if (customer === array[i].name){
-    //use loop to iterate over the friends array
-    for( let j = 0; j < array[i].friends.length; j++){
-      // conditional statement to determine if the lowercase or uppercase character at friends[i][0] is strictly equal to letter(input string)
-      if (array[i].friends[j].name[0].toUpperCase() === letter || array[i].friends[j].name[0].toLowerCase() === letter){
-       // if true push name to the output array
-        output.push( array[i].friends[j].name)
+    // use filter to isolate friends name start with letter 
+     let friends =  _.filter(array[i].friends, (curr) =>{
+      //conditional stmt if first letter of name string matches letter
+      if (curr.name[0].toLowerCase() === letter.toLowerCase()){
+        //return true
+        return true;
       }
-    }
- }
-
- }
- // return the length of the output array 
- return output.length;
-//const nameMatch = _.filter(array, (curr1) =>{ 
-   //if(curr1.name === customer){
-    //return true
-  // }
-//})
-//console.log(nameMatch);
-
-
- //const friendly =  _.filter(array, (curr) =>{
-  // test to see if input name appears in friends array, 
-  //for loop to iterate over friends array
-    //for (let i = 0; i < curr.friends.length; i++){
-      //conditional stmt to determine the if name is in the friends array
-    //if(curr.friends[i].name === name && name !== curr.name){
-      //return true if test is passed
-      //return true;
-   //}
-    //}
-  //});
+    });
+    // return results of filter length property to get the number 
+    return friends.length;
+  }
+ };
 };
 
 
@@ -236,15 +216,17 @@ var topThreeTags = (array) => {
       // return acc
     return acc;
 }, {});
-//
+// convert key value pair of object into array  
 let results = Object.entries(testy);
-
+// use sort to order results in ascending order
 const ascend = results.sort(function (a, b){
   return b[1] - a[1];
 })
-
+//init empty array to push resuls of sort function
 const finalResults = []
+//push results into empty array
 finalResults.push(ascend[0][0], ascend[1][0], ascend[2][0]);
+//return final results
  return finalResults;
 
 };
